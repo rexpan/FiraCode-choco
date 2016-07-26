@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>FiraCode</id>
+    <version>1.200</version>
+    <title>FiraCode Font</title>
+    <authors>Nikita Prokopov</authors>
+    <owners>rexpan</owners>
+    <licenseUrl>https://github.com/tonsky/FiraCode/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/tonsky/FiraCode</projectUrl>
+    <iconUrl>https://pbs.twimg.com/profile_images/678829784072396800/dOZ5wnfM_200x200.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fira Code is an extension of the Fira Mono font containing a set of ligatures for common programming multi-character combinations. This is just a font rendering feature: underlying code remains ASCII-compatible. This helps to read and understand code faster. For some frequent sequences like .. or //, ligatures allow us to correct spacing.</description>
+    <summary>Monospaced font with programming ligatures</summary>
+    <releaseNotes>https://github.com/tonsky/FiraCode/releases/</releaseNotes>
+    <tags>monospace opentype ligatures programming font</tags>
+  </metadata>
+</package>
