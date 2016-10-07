@@ -9,7 +9,9 @@
     <summary>Monospaced font with programming ligatures</summary>
     <description>Fira Code is an extension of the Fira Mono font containing a set of ligatures for common programming multi-character combinations. This is just a font rendering feature: underlying code remains ASCII-compatible. This helps to read and understand code faster. For some frequent sequences like .. or //, ligatures allow us to correct spacing.</description>
     <projectUrl>https://github.com/tonsky/FiraCode</projectUrl>
-    <tags>monospace opentype ligatures programming font</tags>
+    <projectSourceUrl>https://github.com/tonsky/FiraCode</projectSourceUrl>
+    <bugTrackerUrl>https://github.com/tonsky/FiraCode/issues</bugTrackerUrl>
+    <tags>monospace opentype ligatures programming font admin</tags>
     <licenseUrl>https://github.com/tonsky/FiraCode/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <iconUrl>https://pbs.twimg.com/profile_images/678829784072396800/dOZ5wnfM_200x200.png</iconUrl>
