@@ -7,9 +7,9 @@ function Get-CurrentDirectory
 $fontHelpersPath = (Join-Path (Get-CurrentDirectory) 'FontHelpers.ps1')
 . $fontHelpersPath
 
-$fontUrl = 'https://github.com/tonsky/FiraCode/releases/download/1.203/FiraCode_1.203.zip'
+$fontUrl = 'https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip'
 $checksumType = 'sha256';
-$checksum = '41CED5B39609B7414CDA0D6E8D7A724D15E59B4DB890BBFC31F4CE4AA78A5F5E';
+$checksum = '28CCC003173CEC9DE7857F8743B805D6B51EB68FB8BE5E21CE2F8E1584F0939F';
 
 $destination = Join-Path $Env:Temp 'FiraCode'
 
@@ -36,5 +36,3 @@ $toExecute = ". $fontHelpersPath;" + ($commands -join ';')
 Start-ChocolateyProcessAsAdmin $toExecute
 
 Remove-Item $destination -Recurse
-
-
