@@ -4,18 +4,24 @@
 
 # Install
 
-```
+```cmd
 choco install firacode
 ```
 
 # Build
 
-```
+```cmd
 cpack
 ```
 
 # Debug
 
-```
+```cmd
 choco install FiraCode -fdvy -s '%cd%'
+```
+
+# Publish
+
+```
+choco push --source https://push.chocolatey.org/
 ```
