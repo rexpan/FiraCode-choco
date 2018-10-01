@@ -7,9 +7,9 @@ function Get-CurrentDirectory
 $fontHelpersPath = (Join-Path (Get-CurrentDirectory) 'FontHelpers.ps1')
 . $fontHelpersPath
 
-$fontUrl = 'https://github.com/tonsky/FiraCode/releases/download/1.205/FiraCode_1.205.zip'
+$fontUrl = 'https://github.com/tonsky/FiraCode/releases/download/1.206/FiraCode_1.206.zip'
 $checksumType = 'sha256';
-$checksum = '85B2A6DE92B71EF0F7715CCA32D394484221EC978CB21E5228DC99978A7B7D8D';
+$checksum = '433E9E059E53AE1E94C674819B73E49D65BD76E3C6EC70F42D2324062EA3210B';
 
 $destination = Join-Path $Env:Temp 'FiraCode'
 
