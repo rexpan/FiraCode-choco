@@ -23,8 +23,8 @@
 #******************************************************************************
 # File:     FontHelpers.ps1 - derived from Add-Font.ps1 / Remove-Font.ps1
 # Url :     http://blogs.technet.com/b/deploymentguys/archive/2010/12/04/adding-and-removing-fonts-with-windows-powershell.aspx
-# Date:     09/22/2010
-# Version:  1.0.0
+# Date:     08/28/2013
+# Version:  1.0.1
 #
 # Purpose:  PowerShell script to install Windows fonts.
 #
@@ -36,6 +36,10 @@
 # Revisions:
 # ----------
 # 1.0.0   09/22/2010   Created script.
+# 1.0.1   08/28/2013   Fixed help text.  Added quotes around paths in messages.
+#                      Now checking if $error[0] is not null before trying to
+#                      echo that value in Remove-SingleFont so as not to
+#                      generate an error when none occurred.
 #
 #******************************************************************************
 
@@ -447,13 +451,13 @@ function Add-SingleFont($filePath)
         $retVal = [FontResource.AddRemoveFonts]::AddFont($fontFinalPath)
 
         if ($retVal -eq 0) {
-            Write-Host "Font $($filePath) installation failed"
+            Write-Host "Font `'$($filePath)`'`' installation failed"
             Write-Host ""
             1
         }
         else
         {
-            Write-Host "Font $($filePath) installed successfully"
+            Write-Host "Font `'$($filePath)`' installed successfully"
             Write-Host ""
             Set-ItemProperty -path "$($fontRegistryPath)" -name "$($fontName)$($hashFontFileTypes.item($fileExt))" -value "$($fileName)" -type STRING
             0
@@ -462,13 +466,48 @@ function Add-SingleFont($filePath)
     }
     catch
     {
-        Write-Host "An error occured installing $($filePath)"
+        Write-Host "An error occured installing `'$($filePath)`'"
         Write-Host ""
         Write-Host "$($error[0].ToString())"
         Write-Host ""
+        $error.clear()
         1
     }
 }
+
+
+#*******************************************************************
+# Function Get-RegistryStringNameFromValue()
+#
+# Purpose:  Return the Registry value name
+#
+# Input:    $keyPath    Regsitry key drive path
+#           $valueData  Regsitry value sting data
+#
+# Returns:  Registry string value name
+#
+#*******************************************************************
+function Get-RegistryStringNameFromValue([string] $keyPath, [string] $valueData)
+{
+    $pattern = [Regex]::Escape($valueData)
+
+    foreach($property in (Get-ItemProperty $keyPath).PsObject.Properties)
+    {
+        ## Skip the property if it was one PowerShell added
+        if(($property.Name -eq "PSPath") -or
+            ($property.Name -eq "PSChildName"))
+        {
+            continue
+        }
+        ## Search the text of the property
+        $propertyText = "$($property.Value)"
+        if($propertyText -match $pattern)
+        {
+            "$($property.Name)"
+        }
+    }
+}
+
 
 #*******************************************************************
 # Function Remove-SingleFont()
@@ -487,31 +526,42 @@ function Remove-SingleFont($file)
         $fontFinalPath = Join-Path $fontsFolderPath $file
         $retVal = [FontResource.AddRemoveFonts]::RemoveFont($fontFinalPath)
         if ($retVal -eq 0) {
-            Write-Host "Font $($file) removal failed"
+            Write-Host "Font `'$($file)`' removal failed"
             Write-Host ""
             1
         }
         else
         {
             $fontRegistryvaluename = (Get-RegistryStringNameFromValue $fontRegistryPath $file)
+            Write-Host "Font: $($fontRegistryvaluename)"
             if ($fontRegistryvaluename -ne "")
             {
                 Remove-ItemProperty -path $fontRegistryPath -name $fontRegistryvaluename
             }
-            remove-item $fontFinalPath
-        Write-Host "$($error[0].ToString())"
-            Write-Host "Font $($file) removed successfully"
-            Write-Host ""
+            Remove-Item $fontFinalPath
+            if ($error[0] -ne $null)
+            {
+                Write-Host "An error occured removing $`'$($file)`'"
+                Write-Host ""
+                Write-Host "$($error[0].ToString())"
+                $error.clear()
+            }
+            else
+            {
+                Write-Host "Font `'$($file)`' removed successfully"
+                Write-Host ""
+            }
             0
         }
         ""
     }
     catch
     {
-        Write-Host "An error occured removing $($file)"
+        Write-Host "An error occured removing `'$($file)`'"
         Write-Host ""
         Write-Host "$($error[0].ToString())"
         Write-Host ""
+        $error.clear()
         1
     }
 }
