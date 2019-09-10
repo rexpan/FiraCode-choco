@@ -11,13 +11,13 @@ choco install firacode
 # Build
 
 ```cmd
-cpack
+choco pack
 ```
 
 # Debug
 
 ```cmd
-choco install FiraCode -fdvy -s '%cd%'
+choco install FiraCode -fdvy -s .\FiraCode.2.0.nupkg
 ```
 
 # Publish
