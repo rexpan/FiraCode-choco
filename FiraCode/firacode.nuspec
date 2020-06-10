@@ -3,7 +3,7 @@
   <metadata>
     <id>FiraCode</id>
     <title>Fira Code Font</title>
-    <version>4.0</version>
+    <version>5.0</version>
     <authors>Nikita Prokopov</authors>
     <owners>rexpan</owners>
     <summary>Monospaced font with programming ligatures</summary>
@@ -12,7 +12,7 @@
       This is just a font rendering feature: underlying code remains ASCII-compatible.
       This helps to read and understand code faster. For some frequent sequences like .. or //, ligatures allow us to correct spacing.
 
-      Note: `FiraCode` will install *.otf fonts. For installing *.ttf fonts, use `FiraCode-ttf` instead.
+      Note: please close all applications that are using FiraCode (eg. vscode) before upgrade.
     ]]></description>
     <projectUrl>https://github.com/tonsky/FiraCode</projectUrl>
     <projectSourceUrl>https://github.com/tonsky/FiraCode</projectSourceUrl>

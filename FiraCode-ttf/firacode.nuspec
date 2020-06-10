@@ -2,17 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>FiraCode-ttf</id>
-    <title>Fira Code Font</title>
-    <version>4.0</version>
+    <title>[Deprecated] Fira Code Font</title>
+    <version>5.0</version>
     <authors>Nikita Prokopov</authors>
     <owners>rexpan</owners>
     <summary>Monospaced font with programming ligatures</summary>
     <description><![CDATA[
+      From v5 `FiraCode-ttf` is deprecated. Please switch to `FiraCode` instead.
+
       Fira Code is an extension of the Fira Mono font containing a set of ligatures for common programming multi-character combinations.
       This is just a font rendering feature: underlying code remains ASCII-compatible.
       This helps to read and understand code faster. For some frequent sequences like .. or //, ligatures allow us to correct spacing.
-
-      Note: `FiraCode-ttf` will install *.ttf fonts. For installing *.otf fonts, use `FiraCode` instead.
     ]]></description>
     <projectUrl>https://github.com/tonsky/FiraCode</projectUrl>
     <projectSourceUrl>https://github.com/tonsky/FiraCode</projectSourceUrl>
@@ -23,5 +23,8 @@
     <iconUrl>https://pbs.twimg.com/profile_images/968487958801248257/lfqLESLY_400x400.jpg</iconUrl>
     <releaseNotes>https://github.com/tonsky/FiraCode/releases</releaseNotes>
     <packageSourceUrl>https://github.com/rexpan/FiraCode-choco</packageSourceUrl>
+    <dependencies>
+      <dependency id="FiraCode" />
+    </dependencies>
   </metadata>
 </package>
