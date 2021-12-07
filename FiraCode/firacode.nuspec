@@ -3,7 +3,7 @@
   <metadata>
     <id>FiraCode</id>
     <title>Fira Code Font</title>
-    <version>5.2.20210831</version>
+    <version>6.2</version>
     <authors>Nikita Prokopov</authors>
     <owners>rexpan</owners>
     <summary>Monospaced font with programming ligatures</summary>
@@ -24,7 +24,7 @@
     <releaseNotes>https://github.com/tonsky/FiraCode/releases</releaseNotes>
     <packageSourceUrl>https://github.com/rexpan/FiraCode-choco</packageSourceUrl>
     <dependencies>
-      <dependency id="chocolatey-font-helpers.extension" version="0.0.3.1" />
+      <dependency id="chocolatey-font-helpers.extension" version="0.0.4" />
     </dependencies>
   </metadata>
   <files>

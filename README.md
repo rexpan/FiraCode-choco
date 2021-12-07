@@ -17,7 +17,8 @@ choco pack
 # Debug
 
 ```cmd
-choco install FiraCode -fdvy -s .\FiraCode.5.2.nupkg
+choco install FiraCode -fdvy -s .\FiraCode.6.2.nupkg
+choco uninstall FiraCode -fdvy -s .\FiraCode.6.2.nupkg
 ```
 
 # Publish
